@@ -1,0 +1,13 @@
+{
+    "name": "excessive/gbapi",
+    "description": "Interact with the giant bomb api",
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Excessive\\GiantBombAPI\\": "src/"
+        }
+    }
+}
