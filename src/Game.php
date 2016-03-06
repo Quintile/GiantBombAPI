@@ -44,4 +44,9 @@ class Game
     {
         return $this->platforms;
     }
+
+    public function getImage()
+    {
+        return $this->images[0];
+    }
 }
