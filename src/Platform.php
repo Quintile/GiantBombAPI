@@ -30,6 +30,6 @@ class Platform
 
     public function getAbbreviation()
     {
-        return $this->$abbreviation;
+        return $this->abbreviation;
     }
 }
