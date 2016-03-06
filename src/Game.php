@@ -27,7 +27,7 @@ class Game
             $this->platforms = new Platform($platform);
 
         foreach($apiResponse['image'] as $image)
-            $this->images[] = self::IMAGE.$image;
+            $this->images[] = $image;
     }
 
     public function getDeck()
