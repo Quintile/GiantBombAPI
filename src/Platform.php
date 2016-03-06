@@ -25,11 +25,22 @@ class Platform
     public function __construct(array $apiResponse)
     {
         foreach(self::$properties as $property)
-            $this->$property = $apiResponse[$property];
+            if(array_key_exists($property, $apiResponse))
+                $this->$property = $apiResponse[$property];
     }
 
     public function getAbbreviation()
     {
         return $this->abbreviation;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getID()
+    {
+        return $this->id;
     }
 }

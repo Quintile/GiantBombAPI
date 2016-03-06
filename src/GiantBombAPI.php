@@ -12,6 +12,7 @@ class GiantBombAPI
 
     const API_ENDPOINT = 'http://www.giantbomb.com/api/';
     const API_DETAILS = 'game/3030-';
+    const API_PLATFORM = 'platform/3045-';
 
     public function __construct($key)
     {
@@ -39,6 +40,12 @@ class GiantBombAPI
         $response = $this->request(self::API_DETAILS.$id);
 
         return new Game($response['results']);
+    }
+
+    public function platform($id)
+    {
+        $response = $this->request(self::API_PLATFORM.$id);
+        return new Platform($response['results']);
     }
 
     protected function request($resource, array $query = array())
