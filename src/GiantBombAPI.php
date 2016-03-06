@@ -10,7 +10,7 @@ class GiantBombAPI
 
     protected $client = null;
 
-    const API_ENDPOINT = 'https://www.giantbomb.com/api/';
+    const API_ENDPOINT = 'http://www.giantbomb.com/api/';
 
     public function __construct($key)
     {
