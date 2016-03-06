@@ -24,7 +24,7 @@ class Game
        
         $this->name = $apiResponse['name'];
         foreach($apiResponse['platforms'] as $platform)
-            $this->platforms = new Platform($platform);
+            $this->platforms[] = new Platform($platform);
 
         foreach($apiResponse['image'] as $image)
             $this->images[] = $image;
