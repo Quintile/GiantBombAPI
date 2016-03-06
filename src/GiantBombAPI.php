@@ -11,6 +11,7 @@ class GiantBombAPI
     protected $client = null;
 
     const API_ENDPOINT = 'http://www.giantbomb.com/api/';
+    const API_DETAILS = 'game/3030-';
 
     public function __construct($key)
     {
@@ -27,11 +28,17 @@ class GiantBombAPI
         ]);
 
         $results = [];
-        $object = json_decode($response, true);
-        foreach($object['results'] as $result)
+        foreach($response['results'] as $result)
             $results[] = new Game($result);
 
         return $results;
+    }
+
+    public function details($id)
+    {
+        $response = $this->request(self::API_DETAILS.$id);
+
+        return new Game($response['results']);
     }
 
     protected function request($resource, array $query = array())
@@ -45,6 +52,6 @@ class GiantBombAPI
             'query' => $query,
         ]);
 
-        return (string) $result->getBody();
+        return json_decode((string) $result->getBody(), true);
     }
 }
