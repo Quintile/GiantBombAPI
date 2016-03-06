@@ -30,6 +30,11 @@ class Game
             $this->images[] = $image;
     }
 
+    public function getID()
+    {
+        return $this->id;
+    }
+
     public function getDeck()
     {
         return $this->deck;
