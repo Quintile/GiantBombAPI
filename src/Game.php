@@ -23,11 +23,13 @@ class Game
             $this->$property = $apiResponse[$property];
        
         $this->name = $apiResponse['name'];
-        foreach($apiResponse['platforms'] as $platform)
-            $this->platforms[] = new Platform($platform);
+        if(array_key_exists('platforms', $apiResponse))
+            foreach($apiResponse['platforms'] as $platform)
+                $this->platforms[] = new Platform($platform);
 
-        foreach($apiResponse['image'] as $image)
-            $this->images[] = $image;
+        if(array_key_exists('image', $apiResponse))
+            foreach($apiResponse['image'] as $image)
+                $this->images[] = $image;
     }
 
     public function getID()
