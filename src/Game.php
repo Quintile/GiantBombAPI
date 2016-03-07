@@ -23,11 +23,11 @@ class Game
             $this->$property = $apiResponse[$property];
        
         $this->name = $apiResponse['name'];
-        if(array_key_exists('platforms', $apiResponse))
+        if(is_array($apiResponse['platforms']))
             foreach($apiResponse['platforms'] as $platform)
                 $this->platforms[] = new Platform($platform);
 
-        if(array_key_exists('image', $apiResponse))
+        if(is_array($apiResponse['image']))
             foreach($apiResponse['image'] as $image)
                 $this->images[] = $image;
     }
