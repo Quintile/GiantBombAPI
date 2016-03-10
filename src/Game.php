@@ -54,6 +54,8 @@ class Game
 
     public function getImage()
     {
-        return $this->images[0];
+        if(count($this->images))
+            return $this->images[0];
+        return null;
     }
 }
